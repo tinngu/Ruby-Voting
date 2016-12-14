@@ -1,0 +1,85 @@
+So which folder are we sticking with by the way?
+
+Deleted the old folder, kept the new. Gonna upload the PeerRating zip file now.
+
+Sounds good
+
+So for testing purposes, can you download the zip you uploaded, clear the cookies
+in a browser you don't often use and open up the app.rb file and test the different
+functions.
+
+Well IDK what happened, but the whole thing is completely f'd up. Upload csv/zip and nonthing happens.
+
+Same clearing the cookies is really important, because somethings remain that still allow
+the application to run even after editing.
+
+Well erase the admin and student from the csv, pretty sure thats why there was error.
+I'm getting error with zip file that says bootstrapWebsites.zip not found.
+
+I am getting that same exact error for uploading website zip. 
+Also to ensure any common userlist.csv file can be uploaded 
+we can start the admin login with an obscure name. So that way any file uploaded
+will not contains duplicates and prevent upload. 
+
+username :AsqQhd9LDnwz password: password
+
+Well, obviously you have to copy the zip file from the request to the server.... in the code that I guess you removed.
+
+So sorry the one I was working was fine, and I didn't upload it after the zip file finally started
+working, and I assumed it was the same. 
+
+It's aight. New problem now... it won't extract.
+
+I'm exactly where you're at now.
+It says it extracts, but just goes to a blank page.
+
+What is actually working for me now though is your inital code without rubyzip gem.
+I am gonna see Ventura tomorrow, clearly the function goes through without any errors,
+but it doesn't actually extract anything.
+
+Got it working with this:
+
+#Used for extracting zip files
+#Source: http://www.markhneedham.com/blog/2008/10/02/ruby-unzipping-a-file-using-rubyzip/
+def unzip_file (file, destination)
+  Zip::File.open(file) do |zip_file|
+    zip_file.each do |f|
+      f_path = File.join(destination, f.name)
+      FileUtils.mkdir_p(File.dirname(f_path))
+      f.extract(f_path)
+    end
+  end
+end
+
+Replace the other function with this
+Put destination = './public/files/'  the dot is important
+
+ADJKAGSDKAGHSDKJGHSAKHDGHJGDKGSA I glossed over that in stackoverflow, the dot is important
+the dot is important.
+
+OH MY GOD IT WAS A DOT HOLDING ME BACK FROM TEARS. Truly a break through in computer science Nam.
+
+Heh, upload the updated code when you're done and I'll add some error checking.
+
+Removed Admin and Student the csv file, so uploading should be good for the first time.
+
+Hmmm have you posted # Source: http://stackoverflow.com/a/15511438
+like that before? Do they even check?
+
+I can now say that the code is good to go and running properly on my end.
+Userlist upload works
+website zips upload works
+voting once works
+sessions works
+
+Yeah, I put sources, just in case.
+
+Uploaded in canvas and everything works flawlessly without a fail. Final Project is officially done!
+
+On to the final take home.
+
+Nam just want to double check with you if the zip I uploaded looks good, he extended it till Monday,
+but I think it works fine and checks all marks.
+
+I just added some error checking, it should be all good.
+Just need to rezip everything up and resubmit again.
