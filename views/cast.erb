@@ -1,0 +1,13 @@
+<h2>Cast your votes</h2>
+<form method="POST" action=<%="/voter/#{@voter.username}"%>>
+  <input type="hidden" name="_method" value="PUT">
+  <label for="first_Pick" >First Pick:</label>
+  <input id="first_Pick" type="text" name="voter[first_Pick]" value= <%="#{@voter.first_Pick}"%>> <br>
+  <label for="second_Pick">Second Pick:</label>
+  <input id=second_Pick type="text" name="voter[second_Pick]" value=<%="#{@voter.second_Pick}"%>> <br>
+  <label for="third_Pick">Third Pick:</label>
+  <input id="third_Pick" type="text" name="voter[third_Pick]" value=<%="#{@voter.third_Pick}"%>> <br>
+  <input type="submit" value="Submit Votes">
+  <a href="/">Go home</a>
+</form>
+

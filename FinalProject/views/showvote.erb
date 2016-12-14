@@ -1,0 +1,10 @@
+<h1>Current votes:</h1>
+<h2> <%=@voter.username%> </h2>
+<p><%= "First Pick: #{@voter.first_Pick}" %></p>
+<p><%= "Second Pick: #{@voter.second_Pick}" %></p>
+<p><%= "Third Pick: #{@voter.third_Pick}" %></p>
+
+<p> <a href="/voter/<%="#{@voter.username}"%>/cast">Cast your votes</a></p>
+<form action="/voter/<%="#{@voter.username}"%>" method="POST"></form>
+
+<a href="/">Go home</a>

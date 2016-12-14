@@ -1,0 +1,284 @@
+﻿***11/28/2016***
+
+Tin 1:44 PM
+Adult progress made, voting works and properly saves to the database.
+Also access is only granted to the specific user vote if the username matches the login
+I have updated the userlist with all student names, and all passwords set to 123456 except
+admin/admin and student/student for testing purposes.
+
+The additions are added to vote.rb to save from too much clutter in app.rb, and also using slim files,
+because some of the functions for accessing and displaying are shorter, and I don't know how to do it
+in erb.
+
+UGHGHGH Houston we have a problem, it's a small one.
+But everytime for bundle install it says:
+"
+Fetching gem metadata from http://rubygems.org/.........
+Fetching version metadata from http://rubygems.org/..
+Could not find gem 'csv x86-mingw32' in any of the gem sources listed in your
+Gemfile or available on this machine.
+"
+
+Before everything worked fine and dandy, I'm not exactly sure how I made it work in the beginning,
+but it's no longer working now. For now I cannot work on the app until this is resolved, because it
+is preventing me from even running it.
+
+In addition, I have tried "gem install csv", but get the error:
+C:\WINDOWS\system32>gem install csv
+ERROR:  Could not find a valid gem 'csv' (>= 0) in any repository
+
+Temporary fix for me is removing gem 'csv', and everything works fine and dandy!
+
+Update: Users can only vote once now, so once they CAST there vote the results are 
+set and they cannot change them. The user can however see who they voted for.
+
+Tin 11:43 PM
+Allowed for case insensitivity with the word admin, say the professor posts ADMIN or admin in the CSV file, 
+it should be able to correctly detect it.
+
+Tin 3:59 PM
+I did error checking for file uploads, so if he attempts to hit submit without
+anything or enters in an incorrect file the rescue statement will simply puts ERROR! to be read.
+
+Lots of progress made, we only need one last thing and that's taking in a zip file
+of websites and randomizing them. 
+
+Nam Mai
+Nice work!
+
+Tin 10:20 AM 
+Student page should [WIP] contain the list of websites randomized,
+when a student logs in they are redirected to the student page with websites.
+Clicking on the vote button directs them to their specific session to vote.
+
+Tin 11:35 AM 
+Files have been cleaned up and converted to .erb
+I am having a really hard time figuring out how to upload a zip of websites
+and then randomize it.
+
+Nam
+Uploading zip files and unzipping them works. Example zip file is bootstrapWebsites.zip and they are extracted to the
+file directory.
+Also made the csv downloadable and not just sent to the server files.
+
+Made dataview of csv into table.
+
+Displaying websites is done. Only problem is if there are spaces in the folder name and not error checking, but not going to worry about that.
+
+Tin
+For some reason Entry1 just doesn't want to display.
+
+Ah, that folders empty. Remove the two entry folders, upload the zip, and view the websites.
+
+For some reason after uploading the zip, the files are not extracted and I get an error
+because the folder does not exist.
+
+No errors for me. Delete everything from files directory and try using new zip file I uploaded.
+
+Okay okay for the readme, it should be explained that the folder public and public/files and
+public/bootstrap are used to contain the files and to not delete them.
+
+Hmm for some reason I am just getting blanks. Oops accidentally saved didn't get to see your
+message.
+
+Question what folders should be kept? Does it matter if they are in the directory, when
+I upload the zip and submit nothing happens on my end.
+
+Everything should be kept. The public/files directory should be empty, and when you submit it should unzip
+the files there. 
+
+Can you update in the README file that, also what about the bootstrap folder?
+
+UGHGHGH Nothing is being extracted when I hit submit on the zip.
+For testing purposes can you copy the folder onto a desktop, open up a browser
+you don't often use clear the cookies and then try to run the program.
+
+I added error checking to both the website view and uploading, but I am still unable
+to upload a zip and submit, after I go to view websites the page is completely blank.
+When I check the folders after submitting the zip file, they are completely empty.
+
+Nam
+I don't know what's happening on your end, but it's working for me.
+I'm using a shell command to unzip the file in ruby.
+
+Any gems or authorities required for this?
+As in running the program as an admimistrator. When I submit a zip no errors occur, but no extraction happens either.
+
+The public/files just stays empty. However the zip submitted is put into the same directory.
+
+Open up your cmd, and see if you can run unzip command.
+
+Could you paste an example command of it, with a zip in the same directory. 
+
+unzip bootstrapWebsite.zip -d ./tempFolder
+
+If it helps my Windows 10 computer hates me, gimme a second on I'm on it.
+
+Ahhh of course Nam, always up to date with the latest and greatest technologies.
+'unzip' is not recognized as an internal or external command, operable program or batch file.
+
+When I spoke to Ventura he said the web application should be usable by him or Sreeja when 
+they run it.
+
+Well, the rubyZip gem is a PITA...
+
+Hold up, hold up I think we can avoid it, if you explain what is needed to use the cmd unzip,
+that way in the README it is clarified and they'll understand if it doesn't work, but can
+work around it.
+
+Download unzip at http://gnuwin32.sourceforge.net/packages/unzip.htm
+Add C:\Program Files (x86)\GnuWin32\bin to System Variable Path
+See if you can get it working with this
+
+So I installed unzip-5.51-1.exe and added it to the System Variable path exactly as you said,
+but am still getting:
+'unzip' is not recognized as an internal or external command, operable program or batch file.
+
+I'm surprised your computer does this natively, it still doesn't work for me.
+
+Go to Edit System Variables that brings up admin prompt => Environment Variables => 
+Look at System Variables at bottom and edit Path there; also add it to User Variables 
+If this doesn't work, guess we'll have to use the gem
+
+So I added it to the Path there;, but don't see User Variables.
+
+Uploading an image that shows the user variables at top. You might have to do that for your local user as well.
+
+Not to burst your bubble, but do you think the professor or TA will be able to do this? 
+And then be able to unzip, after installing the program and adding to path and all of that.
+
+Well if you can't, we'll just resort to the gem.
+I'v already tried the gem way, but couldn't get it to work.
+
+Yeah I know, I actually tried it too myself, but it is kind of a headache to work with.
+Other than that though it looks like we've checked everything off the list.
+
+IDK whats the problem man, got it working on another machine. 
+Go here instead: http://gnuwin32.sourceforge.net/packages.html and go to the unzip setup.
+Edit variables for your account and add the /gnuwin32/bin to the path
+
+I'm gonna try again with the rubyzip, the command is just not working for me at all.
+
+It doesn't work exactly, but I think that the error is solvable.
+
+Well looks like it works, just put this in the gemfile: gem 'rubyzip',  "~> 1.1", require: 'zip'
+
+
+OMG does it really work!? :^)????
+
+OMFG IT FINALLY WORKED AND THE GOOD NEWS IS THAT THE TAKE HOME IS DUE NEXT FRIDAY.
+Whhheewhewhew honestly I was kinda worried so I rushed to work on it since it was monday.
+
+Windows 10 anniversary update donked up my computer we good. 
+I'm pretty sure you can zip up the file
+and upload it, looks good to go for me.
+===================================
+Peer Rating Web App Guidelines
+
+Recall an earlier assignment has extra credit for the best submissions.  You will build a web site that will allow for students to view and rate (first, second, and third) of the various student submitted web sites.
+[X] Your web app, must store usernames and passwords in an SQL database.
+[X] The passwords must be salted and hashed.
+[X] There needs to be at least 2 roles - one for students allowing them to vote, and one for instructors/tas.
+[X] There must be a way to upload a list (CSV) of users, their passwords, and roles.
+[X] Your web app should allow each student to vote once and only once.
+[X] The instructor/ta is able to upload as a large zip file the websites for the students. (I/FRAME? Dynamically host all of the websites)??? 
+[X] They instructor/ta is able to view a report of the voting.  The report should clearly indicate who voted and how they voted.
+[X] The instructor/ta should be able to download the voting report as a CSV file.
+[X] All input from the client needs to be sanitized and validated on the server. NOTE: you are not required to sanitize and validate the data coming from the database.
+[X] For the voting, the order of the websites should be randomized when displayed for students.
+[X] You will need to use sessions to ensure that users log in.
+[X] You are also required to have an option for logging out.
+[X] You are required to use Bootstrap for styling your web app.
+[X] Notice I am not requiring you to use a particular language for your server side code.  Since we have covered it the most, Ruby + Sinatra is recommended.  However, you may choose any programming language/framework that you wish.  Note, however, that if you have a group with 4 members you must meet one of the language/framework requirements specified earlier.
+
+What to submit
+Zip your project and submit the zip file as an attachment.
+Include a readme.md file in it that details how to run your project
+-- if it is not Ruby and Sinatra, or a Clojure project from IntelliJ.
+If your chosen language/framework does not create the database, 
+make sure to include an SQL file to create the database together with instructions in the readme.md file.
+
+******** Students ********
+AbdullahAljubayri
+
+EyerusArgaw
+
+PeterAttia
+
+AnthonyBrancucci
+
+PatriciaCasagrande
+
+JonathanCasiano
+
+IsmaelDeluna
+
+Benjami Dixon
+
+AndrewFrancis
+
+KristopherGates
+
+Daniel omero
+
+GiovanyGonzalez
+
+AaronHall
+
+OdaiHamed
+
+JacobHansil
+
+IanHunter
+
+ShawnJoseph
+
+RozmeenJumma
+
+SaadKhan
+
+SarmadKhan
+
+MatthewKramer
+
+MayraLanzaQuisbert
+
+NamMai
+
+NghiemNgo
+
+AlyssaNguyen
+
+TinNguyen
+
+DishantPatel
+
+DarrenRichardQuichocho
+
+SoufinRahimeen
+
+WilfredoRamos
+
+YashRangole
+
+NatanaelRivera
+
+JorgeSanchez
+
+JessicaSparrow
+
+AmandaStephan
+
+BrandonToun
+
+AdrianoTriana
+
+JonathanValencia
+
+GiovanniVelasquez-Ospina
+
+TravisYoung
+
+******** Professor & TA (Admin View)********
+PhilipVentura 
+SreejaSreekantanNair

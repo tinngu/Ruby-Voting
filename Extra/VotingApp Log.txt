@@ -1,0 +1,296 @@
+﻿it works
+
+alright just wanna let you know I am kinda busy with OS and my presentation, but after today I'm definitely gonna get cracking on the prpject. 11/22
+
+***11/23/2016***
+Bootstrap w/ Sinatra working
+
+Working on it right now! So files will be updated!
+
+So we have a log in page, good progress, still plenty of time!
+
+
+12:54 pm Tin
+This is a good place to write down our thoughts.
+SQL Table should have the following:
+Username, first pick, Second Pick, Third Pick
+Also we need to have some sort of flag to prevent voting more than once.
+END
+
+2;47 pm Tin
+gonna be heading home to fam for supplies' gold and thanskgiving. So I won't be as active, but let me know of you need anything.
+
+I respond the fastest through text
+727-835-8460
+END
+
+***11/24/2016***
+Nam
+Database up
+Salt/Hashed passwords up
+Login system works
+Login has sessions
+2 users right now:
+	user: admin pw: admin
+	user: student pw: student
+Logout button clears session
+END
+
+10:36 PM TIN,
+WOAH lotsa progress, nice work Nam.
+You're really ahead of the game. I was looking at saltnig
+and hashing too and saw bcrypt.
+
+Small problem, I'd like to work on the code, but it says I am missing
+bcrypt, even after I have done in cmd "gem install bcrypt"
+If you have any tips or suggestins that would be helpful thanks!
+END
+
+***11/25/2016***
+Nam
+Yeah I had that problem too. I used this solution here:
+http://stackoverflow.com/questions/29293321/ruby-on-windows-causes-error-cannot-load-such-file-bcrypt-ext/33593911#33593911
+Be sure to uninstall the bcrypt gems before following those instructions.
+Also be sure to have /devkit/bin and /devkit/mingw/bin are on your PATH to run those commands.
+END
+
+3:43 PM Tin (just now saw this)
+Thanks!, it works for me now! 4:18 PM
+Being with family is so distracting.
+I am trying to work on this now, but their chatter and
+interrogation are beyond me.
+Saturday I will pour my heart into this.
+END
+
+***11/26/2016***
+
+11:54 Tin
+Alrighty so here are somethings I am just jotting down.
+We want to do something like EDIT SONG for a particular username.
+So each sessions voting updates their personal choices for first,second and third.
+admin/:username/vote
+student/:username/vote
+END
+
+12:48 PM Tin
+Awwwhh shoot my brain is melting thinking about this.
+I am gonna ask quite a few questions in Piazza
+Should students and the TA and professor already have PRE-made usernames and passwords.
+
+Also say for each session, a user should simply be able to pick their three choices and be done.
+However on our end we want to make it so that the user ONLY updates their user and votes for that session.
+END
+
+I have no idea how to get this syntax for erb(html):
+form method="post" action="/#{@votes.username}/votes"
+
+slim seems to work with the #{@ more specifically, so I guess I'll just roll with it for now.
+*****
+4:19 PM
+My brain is currently melting I apologize,
+current problems for me are:
+DataObjects::ConnectionError at /login
+unable to open database file
+
+Nam
+I can access /login alright, but when admin, I can't access the admin page.
+
+Tin
+I can view the login page fine, but after entering in or Sumbit admin,password, it gives me the error:
+"unable to open database file"
+
+Nam
+I'm not getting that error, so not sure whats happening.
+
+Tin
+Ahhh, okay just to double check the username: admin and password: password
+You are able to log in just fine? hmm
+
+Nam
+User: admin Password: admin ; for some reason the session isn't working though
+
+Tin
+This is silly, but I have been pulling my hair over this for the past few hours
+and the reason it works for you is because you started the database and
+its under user User name ex: C:/Users/Nam.../FinalProject, so when you open it, it's totally fine
+The fix for me temproraily is to just copy our entire folder and paste it onto desktop
+and it works fine.
+
+But yeah you're right sessioning isn't working for me either. Log in is fine for now as long as I paste it.
+
+Nam
+I believed I fixed it by making this correction:
+session[:role] == 'Admin'
+I'll be gone for a couple hours, but I'll come back to work on uploading list of users and putting them in the database.
+
+Tin
+I'm not exactly sure, if we should have list of pre-set users readers with passwords, or allow people to make accounts
+To save you some time I uploaded the users to the database without passwords and labeled them accordingly.
+
+Nam
+Well I had to nuke the database to expand password_hash to 100 length. If you could fix the database not saving the entry
+like how the professor did it with songs, that would be good. Problem is in POST '/uploadUser'
+Also, it is only hardcoded to look at customer.csv for now.
+
+Tin 1:22 PM
+I have been working on this for quiet a while now and I have such a headache from googling and reading.
+What the professor is doing is CREATING songs and then editing the SPECIFIC song
+what we want is when a user logs into their particular session they should only have to worry about voting,
+so we should make it so that when Nam Mai logs in and clicks vote, Nam Mai is only inputting 
+to the specific username "Nam Mai"s first_pick, second_pick, and third_pick.
+
+I have work tomorrow from 12to5 :(, but I will definitely work on it afterwards and throughout the remaining week. Also gonna see Ventura during office hours Monday.
+
+
+***11/27/2016***
+Nam
+User upload works now. To test, use userList.csv and remove the entries from the database.
+
+Tin
+On a work computer, do I have to install a csv gem for this to work?
+
+Nam
+More than likely you probably have to.
+
+Tin
+Hey Nam, I'm trying my best to keep up to speed, I really want to help,
+but it currently says I am missing gems, which I assume are csv, but when
+I try to install it, it says that it cannot be found. Please help.
+
+Nam
+Can you check if you can run the application?
+
+Tin
+FAST RESPONSE time! I can run the application just fine, I am trying to enter
+in the CSV file.
+
+Nam
+Yeah, I got the same error as you, but everything works for me.
+
+Tin 
+Okay so after loging in with usr:admin pass: admin. I go to Choose User File...
+and select the CSV that you uploaded and go onto submit, but I am getting an error.
+
+Nam
+Be sure to remove duplicate entries in the database, if thats the error.
+
+Tin
+You're a sly fox Nam! Lol it worked, it simply just uploads the results into the database?
+So the CSV I uploaded shows in the database with hashed passwords.
+
+Nam
+Yep, don't think we have to worry about handling errors, just assume we get correct inputs.
+We still have to sanitize the inputs into the database though.
+
+Tin
+I am having the darnest time trying to allow a user to input values into firstPick, secondPick, thirdPick
+and save it. I am currently working on it with student. Baby progress made.
+
+***11/28/2016***
+
+Tin 1:44 PM
+Adult progress made, voting works and properly saves to the database.
+Also access is only granted to the specific user vote if the username matches the login
+I have updated the userlist with all student names, and all passwords set to 123456 except
+admin/admin and student/student for testing purposes.
+
+The additions are added to vote.rb to save from too much clutter in app.rb, and also using slim files,
+because some of the functions for accessing and displaying are shorter, and I don't know how to do it
+in erb.
+
+UGHGHGH Houston we have a problem, it's a small one.
+But everytime for bundle install it says:
+"
+Fetching gem metadata from http://rubygems.org/.........
+Fetching version metadata from http://rubygems.org/..
+Could not find gem 'csv x86-mingw32' in any of the gem sources listed in your
+Gemfile or available on this machine.
+"
+
+Before everything worked fine and dandy, I'm not exactly sure how I made it work in the beginning,
+but it's no longer working now. For now I cannot work on the app until this is resolved, because it
+is preventing me from even running it.
+
+In addition, I have tried "gem install csv", but get the error:
+C:\WINDOWS\system32>gem install csv
+ERROR:  Could not find a valid gem 'csv' (>= 0) in any repository
+
+Temporary fix for me is removing gem 'csv', and everything works fine and dandy!
+
+Update: Users can only vote once now, so once they CAST there vote the results are 
+set and they cannot change them. The user can however see who they voted for.
+
+Also this update log is getting very long, so lets just keep this in the dropbox, for history I guess
+and I'm gonna start typig in Update Log2 now.
+
+QUESTION TIME FOR THE PROFESSOR.
+******** Students ********
+AbdullahAljubayri
+EyerusArgaw
+PeterAttia
+AnthonyBrancucci
+PatriciaCasagrande
+JonathanCasiano
+IsmaelDeluna
+Benjami Dixon
+AndrewFrancis
+KristopherGates
+Daniel omero
+GiovanyGonzalez
+AaronHall
+OdaiHamed
+JacobHansil
+IanHunter
+ShawnJoseph
+RozmeenJumma
+SaadKhan
+SarmadKhan
+MatthewKramer
+MayraLanzaQuisbert
+NamMai
+NghiemNgo
+AlyssaNguyen
+TinNguyen
+DishantPatel
+DarrenRichardQuichocho
+SoufinRahimeen
+WilfredoRamos
+YashRangole
+NatanaelRivera
+JorgeSanchez
+JessicaSparrow
+AmandaStephan
+BrandonToun
+AdrianoTriana
+JonathanValencia
+GiovanniVelasquez-Ospina
+TravisYoung
+******** Professor & TA (Admin View)********
+PhilipVentura 
+SreejaSreekantanNair
+
+
+===================================
+Peer Rating Web App Guidelines
+
+Recall an earlier assignment has extra credit for the best submissions.  You will build a web site that will allow for students to view and rate (first, second, and third) of the various student submitted web sites.
+� Your web app, must store usernames and passwords in an SQL database.
+� The passwords must be salted and hashed.
+� There needs to be at least 2 roles - one for students allowing them to vote, and one for instructors/tas.
+� There must be a way to upload a list (CSV) of users, their passwords, and roles.
+� Your web app should allow each student to vote once and only once.
+� The instructor/ta is able to upload as a large zip file the websites for the students.
+� They instructor/ta is able to view a report of the voting.  The report should clearly indicate who voted and how they voted.
+� The instructor/ta should be able to download the voting report as a CSV file.
+� All input from the client needs to be sanitized and validated on the server. NOTE: you are not required to sanitize and validate the data coming from the database.
+� For the voting, the order of the websites should be randomized when displayed for students.
+� You will need to use sessions to ensure that users log in.
+� You are also required to have an option for logging out.
+� You are required to use Bootstrap for styling your web app.
+� Notice I am not requiring you to use a particular language for your server side code.  Since we have covered it the most, Ruby + Sinatra is recommended.  However, you may choose any programming language/framework that you wish.  Note, however, that if you have a group with 4 members you must meet one of the language/framework requirements specified earlier.
+
+What to submit
+Zip your project and submit the zip file as an attachment.
+Include a readme.md file in it that details how to run your project
+-- if it is not Ruby and Sinatra, or a Clojure project from IntelliJ.
+If your chosen language/framework does not create the database, make sure to include an SQL file to create the database together with instructions in the readme.md file.

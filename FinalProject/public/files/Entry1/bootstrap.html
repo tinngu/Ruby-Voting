@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.1.0.slim.min.js" integrity="sha256-cRpWjoSOw5KcyIOaZNo4i6fZ9tKPhYYb6i5T9RSVJG8=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+    <title>Document</title>
+    <style>
+        .nav.navbar-nav.navbar-right {
+            color: #655c5c ;
+        }
+        [class*="col-"] {
+          border: 2px solid #ddd;
+          border: 2px solid rgba(86,61,124,.2);
+        }
+    </style>
+</head>
+
+<body>
+    
+     <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span> 
+        </button>
+          <a class="navbar-brand" href="#">Battlestar Galactica</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#Synopsis">Synopsis</a> </li>
+            <li><a href="#Reviews">Critic Reviews <span class="badge">5</span></a></li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Characters  <span class="badge">6</span>
+                <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#William_Adama">William Adama</a></li>
+                    <li><a href="#Laura_Roslin">Laura Roslin</a></li>
+                    <li><a href="#Kara_Thrace">Kara Thrace</a></li>
+                    <li><a href="#Lee_Adama">Lee Adama</a></li>
+                    <li><a href="#Gaius_Baltar">Gaius Baltar</a></li>
+                    <li><a href="#Tom_Zarek">Tom Zarek</a></li>
+                </ul>
+            </li>
+            <li><a href="#Carousel">Carousel</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+              <li style="font-size:25px"> <span class="glyphicon glyphicon-copyright-mark"></span>Nam Mai</li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+   
+    <div class="alert alert-info">
+      <strong> <span class="glyphicon glyphicon-info-sign"></span> Info: </strong> This site is a work in progress.
+    </div>
+   
+   <div class="container">
+      <header class="jumbotron">
+        <h1>Battlestar Galactica Fan Page <span class="glyphicon glyphicon-film"></span></h1>
+        <p>Fan Page for all things Battlestar Galatica (2004) reboot, including: synopsis, characters, and more.</p>
+       </header>
+   </div>
+    
+    <!-- Series Synopsis and Critic Reviews From: https://en.wikipedia.org/wiki/Battlestar_Galactica_(2004_TV_series) -->
+    <div class="container-fluid">
+       <div class="row">
+          <article class="col-sm-6" style="background-color: #b3e6ff; min-height:330px" id="Synopsis">
+              <h2>Synopsis</h2>
+              <p>Battlestar Galactica is set in a distant star system, where a civilization of humans live on a group of planets known as the Twelve Colonies. In the past, the Colonies had been at war with a cybernetic race of their own creation, known as the Cylons. With the unwitting help of a human scientist named Gaius Baltar, the Cylons launch a sudden sneak attack on the Colonies, laying waste to the planets and devastating their populations. Out of a population numbering in the billions, only approximately 50,000 humans survive, most of whom were aboard civilian ships that avoided destruction. Of all the Colonial Fleet, the eponymous Battlestar Galactica appears to be the only military capital ship that survived the attack. Under the leadership of Colonial Fleet officer Commander William "Bill" Adama and President Laura Roslin, the Galactica and its crew take up the task of leading the small fugitive fleet of survivors into space in search of a fabled refuge known as Earth.</p>
+          </article>
+          <article class="col-sm-6" style="background-color: #ff8566; min-height:330px" id="Reviews">
+              <h2>Critic Reviews<span class="badge"> 5 </span></h2>
+              <ul>
+                  <li> "You can look at this saga any way you want—as political drama, religious debate, psychological suspenser, sci-fi adventure, deep metaphor or just plain fun—and it's scintillating from every angle." - <b>Robert Bianco</b></li>
+                  <li>  "Its propulsive and complex storytelling is matched by, at best, just a handful of theatrical movies a year." - <b>Matt Soergel</b></li>
+                  <li> "[The] series' sophisticated stories have also attracted a distinctively new breed of fan, one who's not necessarily a sci-fi buff." - <b>Jeff Jensen</b></li>
+                  <li> "arguably the most potent, dramatically vibrant series on television. ...[I]t packs the power of a gut punch on screen." - <b>Peter Suderman</b> </li>
+                  <li> "[W]hat makes Galactica so gripping is its emphasis on character over hardware. The explosions and the killer robots are cool, but they don't stack up to seeing fully-drawn people - brought to life by a great writing staff..." - <b>Alan Sepinwall</b></li>
+              </ul>
+          </article>
+       </div>
+    </div>
+    
+    <!-- Character Synopsis From: http://en.battlestarwiki.org/wiki/Portal:Battlestar_Galactica_(RDM) -->
+    <!-- Code to center image contents of fluid grid (style="float: none; margin: 0 auto;") source: http://stackoverflow.com/a/13463565; Accessed: 9/23/16 -->
+   <h2>Characters  <span class="label label-default">Recently Added</span></h2>
+    <div class="container-fluid">
+        <div class="row">
+            <article class="col-sm-4" id="William_Adama" style="min-height:550px">
+                <h3 class="text-center">William Adama</h3>
+                <img class="img-rounded img-responsive" src="./imagesBootstrap/William_Adama.jpg" alt="William Adama" style="float: none; margin: 0 auto;" height="301" width="200">
+                <p></p>
+                <p>Admiral William Adama, a veteran of the First Cylon War, is the commanding officer of the Battlestar Galactica, and has the longest tenure as the highest ranking officer in the Colonial Fleet after the Fall of the Twelve Colonies.</p>
+            </article>
+            <article class="col-sm-4" id="Laura_Roslin" style="min-height:550px">
+                <h3 class="text-center">Laura Roslin</h3>
+                <img class="img-rounded img-responsive" src="./imagesBootstrap/Laura_Roslin.jpg" alt="Laura Roslin" style="float: none; margin: 0 auto;" height="301" width="200"> 
+                <p></p>               
+                <p>Laura Roslin serves as the Secretary of Education at the time of the Cylon attack and later serves twice as President of the Twelve Colonies despite never being elected to office. She is also believed by some in the Fleet to be a religious figure essential to the fulfillment of the Pythian prophecy. </p>
+            </article>
+            <article class="col-sm-4" id="Kara_Thrace" style="min-height:550px">
+                <h3 class="text-center">Kara Thrace</h3>
+                <img class="img-circle img-responsive" src="./imagesBootstrap/Kara_Thrace.jpg" alt="Kara Thrace" style="float: none; margin: 0 auto;" height="301" width="200">                
+                <p></p>
+                <p>Kara "Starbuck" Thrace is a gifted Viper pilot, with an attitude that has hindered her career in the Colonial Fleet. However, William Adama has confidence in Thrace's military skills, and she greatly aids the Fleet inside and out of the cockpit. She is the last Commander, Air Group (CAG) of Galactica, and mysteriously vanishes in a region that will later be known as Tanzania on the second Earth shortly after the Fleet's arrival on the planet.</p>
+            </article>
+        </div>
+    </div>
+    
+    <div class="container-fluid">
+        <div class="row">
+            <article class="col-sm-4" id="Lee_Adama" style="min-height:550px">
+                <h3 class="text-center">Lee Adama</h3>
+                <img class="img-circle img-responsive" src="./imagesBootstrap/Lee_Adama.jpg" alt="Lee Adama" style="float: none; margin: 0 auto;" height="301" width="200">
+                <p></p>
+                <p>Leland Joseph Adama, commonly known as Lee Adama or by his callsign, "Apollo", is a former Colonial Fleet Reserve officer who becomes the Caprican delegate to the Quorum of Twelve, then later the interim President of the Twelve Colonies of Kobol. He is the sole surviving son of William Adama. After the Fall, he is appointed Galactica CAG. He is later promoted to executive officer, then commander of Pegasus. After Pegasus's destruction, he resumes being Galactica CAG until he resigns from the Colonial Fleet.</p>
+            </article>
+            <article class="col-sm-4" id="Gaius_Baltar" style="min-height:550px">
+                <h3 class="text-center">Gaius Baltar</h3>
+                <img class="img-responsive" src="./imagesBootstrap/Gaius_Baltar.jpg" alt="Gaius Baltar" style="float: none; margin: 0 auto;" height="301" width="200">
+                <p></p>
+                <p>Doctor Gaius Baltar is a brilliant scientist, legally-elected President of the Twelve Colonies of Kobol, and, later, a revered religious figure for the remnants of humanity. An amoral person who has always had his self-interests above all else, Baltar's actions have both saved and imperiled the Fleet and its survivors on numerous occasions throughout their exodus from the Colonies — an event that that he is ultimately responsible for allowing to occur.</p>
+            </article>
+            <article class="col-sm-4" id="Tom_Zarek" style="min-height:550px">
+                <h3 class="text-center">Tom Zarek</h3>
+                <img class="img-responsive" src="./imagesBootstrap/Zarek.jpg" alt="Tom Zarek" style="float: none; margin: 0 auto;" height="301" width="200">
+                <p></p>
+                <p>Thomas Zarek, commonly known as Tom Zarek, was a political activist for more than thirty years before the Fall of the Twelve Colonies. He was a charismatic, eloquent, and ideological political agitator who turned to terrorism, and was eventually incarcerated for blowing up a government building on Sagittaron. Afterward, he is elected the Sagitarion delegate to the Quorum of Twelve, before being appointed vice president of the Twelve Colonies under Gaius Baltar. In punishment for leading a coup against the civilian government, Zarek is executed for murder and treason.</p>
+            </article>                                                            
+        </div>
+    </div>
+    
+    
+    <div id="Carousel" class="carousel slide container" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <img src="imagesBootstrap/Galactica.jpg" alt="Battlestar Galactica Fleet">
+                <div class="carousel-caption">
+                    <h3>Battlestar Galactica Fleet</h3>
+                </div>
+            </div>
+            
+            <div class="item">
+                <img src="imagesBootstrap/Cast.jpg" alt="Cast of Battlestar Galactica">
+                <div class="carousel-caption">
+                    <h3>Cast of Battlestar Galactica</h3>
+                </div>
+            </div>
+            
+            
+            <div class="item">
+                <img src="imagesBootstrap/Timeline.jpg" alt="Timeline of Battlestar Galactica">
+                <div class="carousel-caption">
+                    <h3>Timeline of Battlestar Galactica</h3>
+                </div>
+            </div>            
+        </div>
+        
+        <a class="left carousel-control" href="#Carousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#Carousel" role="button" data-slide="next">
+        <a class="right carousel-control" href="#Carousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>            
+        </a>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,12 @@
+<h1>Student Page</h1>
+<p>View the websites below or click the tab above!</p>
+<form action='/displayWebsites' method='GET'>
+  <button type="submit" class="btn btn-default">View Websites</button>
+</form>
+
+<br>
+
+<p>Vote below for your favorites after viewing the websites:</p>
+<form action=<%="voter/#{session[:name]}"%> method='GET'>
+  <button type="submit" class="btn btn-default">Vote Here</button>
+</form>

@@ -1,0 +1,18 @@
+<ul>
+  <table align="center">
+    <tr>
+      <th text-align="center"> Name </th>
+      <th text-align="center"> First Pick </th>
+      <th text-align="center"> Second Pick &nbsp &nbsp</th>
+      <th text-align="center"> Third Pick &nbsp &nbsp</th>
+    </tr>
+  <% @dataArray.each do |name, p1, p2, p3| %>
+        <tr>
+        <td align="center"><%="#{name}"%></td>
+        <td align="center"><%="#{p1}"%></td>
+        <td align="center"><%="#{p2}"%></td>
+        <td align="center"><%="#{p3}"%></td>
+        </tr>
+  <% end %>
+    </table>
+</ul>

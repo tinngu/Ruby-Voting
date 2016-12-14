@@ -1,0 +1,12 @@
+<% @website_list.each do |website| %>
+    <% path = "../files/" + website + "/bootstrap.html" %>
+    <hr style="height:1px;border:none;color:#333;background-color:#333;" />
+    <h1> <%=website%> </h1>
+    <div class="container-fluid">
+      <div class="row">
+        <article class="col-sm-12" style="min-height:550px">
+      <iframe height="500" width="1200"src=<%=path%>></iframe>
+          </article>
+    </div>
+    </div>
+<% end %>
